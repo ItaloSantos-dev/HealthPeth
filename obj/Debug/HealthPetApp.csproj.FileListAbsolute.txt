@@ -1,0 +1,11 @@
+E:\FACEMA\ProjetosPessoais\HealthPeth\bin\Debug\HealthPetApp.exe.config
+E:\FACEMA\ProjetosPessoais\HealthPeth\bin\Debug\HealthPetApp.exe
+E:\FACEMA\ProjetosPessoais\HealthPeth\bin\Debug\HealthPetApp.pdb
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.csproj.AssemblyReference.cache
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.TelaInicial.resources
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Properties.Resources.resources
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.csproj.GenerateResource.cache
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.csproj.CoreCompileInputs.cache
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.exe
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.pdb
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.exe.config
