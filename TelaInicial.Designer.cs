@@ -37,9 +37,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCadvw = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelCad = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLoginvw = new System.Windows.Forms.Button();
             this.txtSenhaCad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtEmailCad = new System.Windows.Forms.TextBox();
@@ -56,7 +56,7 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelCad.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLogin
@@ -149,30 +149,30 @@
             this.btnCadvw.Text = "Registrar-se";
             this.btnCadvw.UseVisualStyleBackColor = false;
             // 
-            // panel1
+            // panelCad
             // 
-            this.panel1.Controls.Add(this.maskedTextBox1);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txtTelCad);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.txtEndCad);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.txtSobrenomeCad);
-            this.panel1.Controls.Add(this.txtNomeCad);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.txtSenhaCad);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtEmailCad);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(83, 23);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(597, 382);
-            this.panel1.TabIndex = 1;
-            this.panel1.Visible = false;
+            this.panelCad.Controls.Add(this.maskedTextBox1);
+            this.panelCad.Controls.Add(this.label10);
+            this.panelCad.Controls.Add(this.txtTelCad);
+            this.panelCad.Controls.Add(this.label7);
+            this.panelCad.Controls.Add(this.txtEndCad);
+            this.panelCad.Controls.Add(this.label9);
+            this.panelCad.Controls.Add(this.textBox1);
+            this.panelCad.Controls.Add(this.txtSobrenomeCad);
+            this.panelCad.Controls.Add(this.txtNomeCad);
+            this.panelCad.Controls.Add(this.label8);
+            this.panelCad.Controls.Add(this.button1);
+            this.panelCad.Controls.Add(this.btnLoginvw);
+            this.panelCad.Controls.Add(this.txtSenhaCad);
+            this.panelCad.Controls.Add(this.label4);
+            this.panelCad.Controls.Add(this.txtEmailCad);
+            this.panelCad.Controls.Add(this.label5);
+            this.panelCad.Controls.Add(this.label6);
+            this.panelCad.Location = new System.Drawing.Point(83, 23);
+            this.panelCad.Name = "panelCad";
+            this.panelCad.Size = new System.Drawing.Size(597, 382);
+            this.panelCad.TabIndex = 1;
+            this.panelCad.Visible = false;
             // 
             // button1
             // 
@@ -186,17 +186,17 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnLoginvw
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(232)))), ((int)(((byte)(153)))));
-            this.button2.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(170, 301);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 28);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Entrar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnLoginvw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(232)))), ((int)(((byte)(153)))));
+            this.btnLoginvw.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginvw.Location = new System.Drawing.Point(170, 301);
+            this.btnLoginvw.Name = "btnLoginvw";
+            this.btnLoginvw.Size = new System.Drawing.Size(106, 28);
+            this.btnLoginvw.TabIndex = 19;
+            this.btnLoginvw.Text = "Login";
+            this.btnLoginvw.UseVisualStyleBackColor = false;
+            this.btnLoginvw.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtSenhaCad
             // 
@@ -360,15 +360,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(769, 450);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelCad);
             this.Controls.Add(this.panelLogin);
             this.Name = "TelaInicial";
             this.Text = "HealthPet";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelCad.ResumeLayout(false);
+            this.panelCad.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -383,9 +383,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCadvw;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelCad;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLoginvw;
         private System.Windows.Forms.TextBox txtSenhaCad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEmailCad;

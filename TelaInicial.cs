@@ -39,7 +39,8 @@ namespace HealthPetApp
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-
+            panelLogin.Visible = false;
+            panelCad.Visible = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -134,7 +135,8 @@ namespace HealthPetApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            panelLogin.Visible = true;
+            panelCad.Visible = false;
         }
 
         private void txtSenhaCad_TextChanged(object sender, EventArgs e)
