@@ -30,14 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaInicial));
             this.panelLogin = new System.Windows.Forms.Panel();
+            this.btnCadvw = new System.Windows.Forms.Button();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.txtSenhaLogin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEmaiLogin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCadvw = new System.Windows.Forms.Button();
             this.panelCad = new System.Windows.Forms.Panel();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTelCad = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtEndCad = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSobrenomeCad = new System.Windows.Forms.Label();
+            this.txtNomeCad = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnLoginvw = new System.Windows.Forms.Button();
             this.txtSenhaCad = new System.Windows.Forms.TextBox();
@@ -45,16 +55,6 @@
             this.txtEmailCad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtSobrenomeCad = new System.Windows.Forms.Label();
-            this.txtNomeCad = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtEndCad = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtTelCad = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
             this.panelCad.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,18 @@
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(307, 353);
             this.panelLogin.TabIndex = 0;
+            // 
+            // btnCadvw
+            // 
+            this.btnCadvw.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCadvw.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadvw.Location = new System.Drawing.Point(174, 292);
+            this.btnCadvw.Name = "btnCadvw";
+            this.btnCadvw.Size = new System.Drawing.Size(106, 28);
+            this.btnCadvw.TabIndex = 13;
+            this.btnCadvw.Text = "Registrar-se";
+            this.btnCadvw.UseVisualStyleBackColor = false;
+            this.btnCadvw.Click += new System.EventHandler(this.btnCadvw_Click_2);
             // 
             // btnEntrar
             // 
@@ -138,17 +150,6 @@
             this.label2.Text = "Login";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // btnCadvw
-            // 
-            this.btnCadvw.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnCadvw.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadvw.Location = new System.Drawing.Point(174, 292);
-            this.btnCadvw.Name = "btnCadvw";
-            this.btnCadvw.Size = new System.Drawing.Size(106, 28);
-            this.btnCadvw.TabIndex = 13;
-            this.btnCadvw.Text = "Registrar-se";
-            this.btnCadvw.UseVisualStyleBackColor = false;
-            // 
             // panelCad
             // 
             this.panelCad.Controls.Add(this.maskedTextBox1);
@@ -173,6 +174,110 @@
             this.panelCad.Size = new System.Drawing.Size(597, 382);
             this.panelCad.TabIndex = 1;
             this.panelCad.Visible = false;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(145, 256);
+            this.maskedTextBox1.Mask = "XXX.XXX.XXX-XX";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(304, 20);
+            this.maskedTextBox1.TabIndex = 30;
+            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(277, 221);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 22);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "CPF";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // txtTelCad
+            // 
+            this.txtTelCad.Location = new System.Drawing.Point(403, 201);
+            this.txtTelCad.Mask = "(XX) XXXXX-XXXX";
+            this.txtTelCad.Name = "txtTelCad";
+            this.txtTelCad.Size = new System.Drawing.Size(127, 20);
+            this.txtTelCad.TabIndex = 28;
+            this.txtTelCad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTelCad.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtTelCad_MaskInputRejected);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(433, 166);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 22);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Telefone";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // txtEndCad
+            // 
+            this.txtEndCad.Location = new System.Drawing.Point(403, 117);
+            this.txtEndCad.Name = "txtEndCad";
+            this.txtEndCad.Size = new System.Drawing.Size(127, 20);
+            this.txtEndCad.TabIndex = 26;
+            this.txtEndCad.TextChanged += new System.EventHandler(this.txtEndCad_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(430, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 22);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Endereço";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(71, 201);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(127, 20);
+            this.textBox1.TabIndex = 24;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // txtSobrenomeCad
+            // 
+            this.txtSobrenomeCad.AutoSize = true;
+            this.txtSobrenomeCad.BackColor = System.Drawing.Color.Transparent;
+            this.txtSobrenomeCad.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSobrenomeCad.Location = new System.Drawing.Point(92, 166);
+            this.txtSobrenomeCad.Name = "txtSobrenomeCad";
+            this.txtSobrenomeCad.Size = new System.Drawing.Size(87, 22);
+            this.txtSobrenomeCad.TabIndex = 23;
+            this.txtSobrenomeCad.Text = "Sobrenome";
+            this.txtSobrenomeCad.Click += new System.EventHandler(this.txtSobrenomeCad_Click);
+            // 
+            // txtNomeCad
+            // 
+            this.txtNomeCad.Location = new System.Drawing.Point(71, 117);
+            this.txtNomeCad.Name = "txtNomeCad";
+            this.txtNomeCad.Size = new System.Drawing.Size(127, 20);
+            this.txtNomeCad.TabIndex = 22;
+            this.txtNomeCad.TextChanged += new System.EventHandler(this.txtNomeCad_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(110, 82);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 22);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Nome";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // button1
             // 
@@ -250,110 +355,6 @@
             this.label6.Text = "Cadastrar-se";
             this.label6.Click += new System.EventHandler(this.label6_Click_1);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(71, 201);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 20);
-            this.textBox1.TabIndex = 24;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
-            // 
-            // txtSobrenomeCad
-            // 
-            this.txtSobrenomeCad.AutoSize = true;
-            this.txtSobrenomeCad.BackColor = System.Drawing.Color.Transparent;
-            this.txtSobrenomeCad.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSobrenomeCad.Location = new System.Drawing.Point(92, 166);
-            this.txtSobrenomeCad.Name = "txtSobrenomeCad";
-            this.txtSobrenomeCad.Size = new System.Drawing.Size(87, 22);
-            this.txtSobrenomeCad.TabIndex = 23;
-            this.txtSobrenomeCad.Text = "Sobrenome";
-            this.txtSobrenomeCad.Click += new System.EventHandler(this.txtSobrenomeCad_Click);
-            // 
-            // txtNomeCad
-            // 
-            this.txtNomeCad.Location = new System.Drawing.Point(71, 117);
-            this.txtNomeCad.Name = "txtNomeCad";
-            this.txtNomeCad.Size = new System.Drawing.Size(127, 20);
-            this.txtNomeCad.TabIndex = 22;
-            this.txtNomeCad.TextChanged += new System.EventHandler(this.txtNomeCad_TextChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(110, 82);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 22);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Nome";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(433, 166);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 22);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Telefone";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // txtEndCad
-            // 
-            this.txtEndCad.Location = new System.Drawing.Point(403, 117);
-            this.txtEndCad.Name = "txtEndCad";
-            this.txtEndCad.Size = new System.Drawing.Size(127, 20);
-            this.txtEndCad.TabIndex = 26;
-            this.txtEndCad.TextChanged += new System.EventHandler(this.txtEndCad_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(430, 82);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 22);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Endereço";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // txtTelCad
-            // 
-            this.txtTelCad.Location = new System.Drawing.Point(403, 201);
-            this.txtTelCad.Mask = "(XX) XXXXX-XXXX";
-            this.txtTelCad.Name = "txtTelCad";
-            this.txtTelCad.Size = new System.Drawing.Size(127, 20);
-            this.txtTelCad.TabIndex = 28;
-            this.txtTelCad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTelCad.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtTelCad_MaskInputRejected);
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(145, 256);
-            this.maskedTextBox1.Mask = "XXX.XXX.XXX-XX";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(304, 20);
-            this.maskedTextBox1.TabIndex = 30;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(277, 221);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 22);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "CPF";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,6 +363,7 @@
             this.ClientSize = new System.Drawing.Size(769, 450);
             this.Controls.Add(this.panelCad);
             this.Controls.Add(this.panelLogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaInicial";
             this.Text = "HealthPet";
             this.Load += new System.EventHandler(this.Form1_Load);

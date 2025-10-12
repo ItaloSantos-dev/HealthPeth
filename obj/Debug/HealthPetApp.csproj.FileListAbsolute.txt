@@ -9,3 +9,4 @@ E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.csproj.CoreCompileI
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.exe
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.pdb
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.exe.config
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.Home.resources

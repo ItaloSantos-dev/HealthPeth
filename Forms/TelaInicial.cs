@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthPetApp.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,8 +40,10 @@ namespace HealthPetApp
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            panelLogin.Visible = false;
-            panelCad.Visible = true;
+            Home vwHome = new Home();
+            vwHome.Owner = this;
+            vwHome.Show();
+            this.Hide();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -157,6 +160,12 @@ namespace HealthPetApp
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCadvw_Click_2(object sender, EventArgs e)
+        {
+            panelLogin.Visible = false; 
+            panelCad.Visible = true;
         }
     }
 }
