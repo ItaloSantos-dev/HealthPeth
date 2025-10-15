@@ -98,6 +98,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLasses\Usuario.cs" />
+    <Compile Include="CLasses\UsuarioLogado.cs" />
     <Compile Include="Database\Conexao.cs" />
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>

@@ -169,7 +169,7 @@
             this.panelCad.Controls.Add(this.txtEmailCad);
             this.panelCad.Controls.Add(this.label5);
             this.panelCad.Controls.Add(this.label6);
-            this.panelCad.Location = new System.Drawing.Point(83, 23);
+            this.panelCad.Location = new System.Drawing.Point(629, 253);
             this.panelCad.Name = "panelCad";
             this.panelCad.Size = new System.Drawing.Size(597, 382);
             this.panelCad.TabIndex = 1;

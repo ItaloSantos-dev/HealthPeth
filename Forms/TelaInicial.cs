@@ -1,4 +1,5 @@
-﻿using HealthPetApp.Forms;
+﻿using HealthPetApp.CLasses;
+using HealthPetApp.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,10 +41,8 @@ namespace HealthPetApp
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            Home vwHome = new Home();
-            vwHome.Owner = this;
-            vwHome.Show();
-            this.Hide();
+            Usuario usuario = new Usuario();
+            usuario.ValidarLogin(txtEmaiLogin.Text, txtSenhaLogin.Text, this);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
