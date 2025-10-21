@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HealthPetApp.CLasses
 {
@@ -76,6 +77,167 @@ namespace HealthPetApp.CLasses
             }
 
         }
+
+        public void Registrar()
+        {
+            var con = conexao.AbrirConexao();
+
+            string INSERT = "INSERT INTO usuarios (id, nome, sobrenome, cpf, email, senha, endereco, telefone) VALUES " +
+                "                                 (@_id, @_nome, @_sobrenome, @_cpf, @_email, @_senha, @_endereco, @_telefone) ";
+            MySqlCommand cmd = new MySqlCommand(INSERT, con);
+            cmd.Parameters.AddWithValue("_id", Id);
+            cmd.Parameters.AddWithValue("_nome", Nome);
+            cmd.Parameters.AddWithValue("_sobrenome", Sobrenome);
+            cmd.Parameters.AddWithValue("_cpf", Cpf);
+            cmd.Parameters.AddWithValue("_email", Email);
+            cmd.Parameters.AddWithValue("_senha", Senha);
+            cmd.Parameters.AddWithValue("_endereco", Endereco);
+            cmd.Parameters.AddWithValue("_telefone", Telefone);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Usuário registrado com sucesso ");
+
+            }
+            catch (MySqlException ex) 
+            {
+                MessageBox.Show("Erro ao registrar usuário " +  ex.Message);
+            }
+        }
+        public DataTable FiltrarConsultas(string filtro)
+        {
+            var con = conexao.AbrirConexao();
+            string SELECT;
+            DataTable tabelaconsultas = new DataTable();
+            if (filtro == "Todas")
+            {
+                //todas consultas
+                SELECT = "SELECT pets.apelido, pets.especie, consultas.tipo, consultas.data, consultas.status, consultas.diagnostico, consultas.diagnostico FROM consultas " +
+                "JOIN agendamentos ON consultas.agendamento_id = agendamentos.id " +
+                "JOIN pets ON agendamentos.pet_id = pets.id " +
+                "JOIN usuarios ON pets.tutor_id = usuarios.id " +
+                "WHERE usuarios.id = @usuario_id;";
+                
+                MySqlCommand cmd = new MySqlCommand(SELECT, con);
+                cmd.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
+                //adapta para retornar uma tabela
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+                //criia uma tabela
+                //preenche a tabela
+                adaptador.Fill(tabelaconsultas);
+            }
+            else if (filtro== "Este mês")
+            {
+                //Deste mês
+                DateTime diaAtual = DateTime.Today;
+                DateTime primeiroDiaDoMes = new DateTime(diaAtual.Year, diaAtual.Month, 1);
+                int ultimoDiaNum = DateTime.DaysInMonth(diaAtual.Year, diaAtual.Month);
+                DateTime ultimoDiaDoMes = new DateTime(diaAtual.Year, diaAtual.Month, ultimoDiaNum);
+
+                SELECT = "SELECT pets.apelido, pets.especie, consultas.tipo, consultas.data, consultas.status, consultas.diagnostico, consultas.diagnostico FROM consultas " +
+                    "JOIN agendamentos ON consultas.agendamento_id = agendamentos.id " +
+                    "JOIN pets ON agendamentos.pet_id = pets.id " +
+                    "JOIN usuarios ON pets.tutor_id = usuarios.id " +
+                    "WHERE consultas.data BETWEEN @primeirodia AND @ultimodia " +
+                    "&& usuarios.id = @usuario_id;"; 
+                MySqlCommand cmd = new MySqlCommand(SELECT , con);
+                cmd.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
+                cmd.Parameters.AddWithValue("@primeirodia", primeiroDiaDoMes);
+                cmd.Parameters.AddWithValue("@ultimodia", ultimoDiaDoMes);
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+                adaptador .Fill(tabelaconsultas);
+            }
+            else if(filtro == "Agendadas")
+            {
+                SELECT = "SELECT pets.apelido, pets.especie, consultas.tipo, consultas.data, consultas.status, consultas.diagnostico, consultas.diagnostico FROM consultas " +
+                    "JOIN agendamentos ON consultas.agendamento_id = agendamentos.id " +
+                    "JOIN pets ON agendamentos.pet_id = pets.id " +
+                    "JOIN usuarios ON pets.tutor_id = usuarios.id " +
+                    "WHERE consultas.status = 'agendado'" +
+                    "&& usuarios.id = @usuario_id;"; 
+                MySqlCommand cmd = new MySqlCommand(SELECT, con);
+                cmd.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+                adaptador.Fill(tabelaconsultas);
+
+            }
+            else if(filtro == "Concluidas")
+            {
+                SELECT = "SELECT pets.apelido, pets.especie, consultas.tipo, consultas.data, consultas.status, consultas.diagnostico, consultas.diagnostico FROM consultas " +
+                    "JOIN agendamentos ON consultas.agendamento_id = agendamentos.id " +
+                    "JOIN pets ON agendamentos.pet_id = pets.id " +
+                    "JOIN usuarios ON pets.tutor_id = usuarios.id " +
+                    "WHERE consultas.status = 'realizado' " +
+                    "&& usuarios.id = @usuario_id;";
+
+                MySqlCommand cmd = new MySqlCommand(SELECT, con);
+                cmd.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+                adaptador.Fill(tabelaconsultas);
+            }
+            else if( filtro == "Canceladas")
+            {
+                SELECT = "SELECT pets.apelido, pets.especie, consultas.tipo, consultas.data, consultas.status, consultas.diagnostico, consultas.diagnostico FROM consultas " +
+                    "JOIN agendamentos ON consultas.agendamento_id = agendamentos.id " +
+                    "JOIN pets ON agendamentos.pet_id = pets.id " +
+                    "JOIN usuarios ON pets.tutor_id = usuarios.id " +
+                    "WHERE consultas.status = 'cancelado'" +
+                    "&& usuarios.id = @usuario_id;" ;
+                MySqlCommand cmd = new MySqlCommand(SELECT, con);
+                cmd.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+                adaptador.Fill(tabelaconsultas);
+            }
+            else if (filtro == "Perdidas")
+            {
+                SELECT = "SELECT pets.apelido, pets.especie, consultas.tipo, consultas.data, consultas.status, consultas.diagnostico, consultas.diagnostico FROM consultas " +
+                    "JOIN agendamentos ON consultas.agendamento_id = agendamentos.id " +
+                    "JOIN pets ON agendamentos.pet_id = pets.id " +
+                    "JOIN usuarios ON pets.tutor_id = usuarios.id " +
+                    "WHERE consultas.status = 'faltou'" +
+                    "&& usuarios.id = @usuario_id;" ;
+                MySqlCommand cmd = new MySqlCommand(SELECT, con);
+                cmd.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+                adaptador.Fill(tabelaconsultas);
+            }
+            else
+            {
+                return null;
+            }
+            return tabelaconsultas;
+
+
+
+
+        }
+
+
+        public DataTable BuscarCompromissos()
+        {
+            var con = conexao.AbrirConexao();
+            string SELECT1 = "SELECT pets.apelido, receitas.medicamento, receitas.dosagem, receitas.unidade FROM receitas JOIN consultas ON receitas.consulta_id = consultas.id JOIN agendamentos ON consultas.agendamento_id = agendamentos.id JOIN pets ON agendamentos.pet_id = pets.id WHERE pets.tutor_id = @usuario_id AND receitas.status = 'em andamento'";
+            MySqlCommand cmd1 = new MySqlCommand(SELECT1, con);
+            cmd1.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
+            DataTable tabela = new DataTable();
+            MySqlDataAdapter adaptador1 = new MySqlDataAdapter(cmd1);
+            adaptador1.Fill(tabela);
+
+            string SELECT2 = "SELECT pets.apelido, tratamentos.descricao, tratamentos.dias_semana, tratamentos.horario FROM tratamentos JOIN consultas ON tratamentos.consulta_id = consultas.id JOIN agendamentos ON consultas.agendamento_id = agendamentos.id JOIN pets ON agendamentos.pet_id = pets.id WHERE pets.tutor_id = @usuario_id AND tratamentos.status='em andamento'";
+            MySqlCommand cmd2 = new MySqlCommand(SELECT2, con);
+            cmd2.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
+            DataTable tabela2 = new DataTable();
+            MySqlDataAdapter adaptador2 = new MySqlDataAdapter(cmd2);
+            adaptador2.Fill(tabela2);
+
+            tabela.Merge(tabela2);
+            
+            return tabela;
+
+
+        }
+
+
 
 
 

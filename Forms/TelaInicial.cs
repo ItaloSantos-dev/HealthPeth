@@ -132,7 +132,15 @@ namespace HealthPetApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Usuario usuario = new Usuario();
+            usuario.Nome = txtNomeCad.Text;
+            usuario.Sobrenome = txtSobrenomeCad.Text;
+            usuario.Cpf = txtCpfCad.Text;
+            usuario.Email = txtEmailCad.Text;
+            usuario.Senha = txtSenhaCad.Text;
+            usuario.Endereco = txtEndCad.Text;
+            usuario.Telefone = txtTelCad.Text;
+            usuario.Registrar();
         }
 
         private void button2_Click(object sender, EventArgs e)

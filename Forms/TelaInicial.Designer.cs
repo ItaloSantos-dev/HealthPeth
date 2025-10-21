@@ -38,9 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelCad = new System.Windows.Forms.Panel();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtTelCad = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtEndCad = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,6 +53,8 @@
             this.txtEmailCad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtTelCad = new System.Windows.Forms.MaskedTextBox();
+            this.txtCpfCad = new System.Windows.Forms.MaskedTextBox();
             this.panelLogin.SuspendLayout();
             this.panelCad.SuspendLayout();
             this.SuspendLayout();
@@ -152,9 +152,9 @@
             // 
             // panelCad
             // 
-            this.panelCad.Controls.Add(this.maskedTextBox1);
-            this.panelCad.Controls.Add(this.label10);
+            this.panelCad.Controls.Add(this.txtCpfCad);
             this.panelCad.Controls.Add(this.txtTelCad);
+            this.panelCad.Controls.Add(this.label10);
             this.panelCad.Controls.Add(this.label7);
             this.panelCad.Controls.Add(this.txtEndCad);
             this.panelCad.Controls.Add(this.label9);
@@ -169,21 +169,11 @@
             this.panelCad.Controls.Add(this.txtEmailCad);
             this.panelCad.Controls.Add(this.label5);
             this.panelCad.Controls.Add(this.label6);
-            this.panelCad.Location = new System.Drawing.Point(629, 253);
+            this.panelCad.Location = new System.Drawing.Point(83, 23);
             this.panelCad.Name = "panelCad";
             this.panelCad.Size = new System.Drawing.Size(597, 382);
             this.panelCad.TabIndex = 1;
             this.panelCad.Visible = false;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(145, 256);
-            this.maskedTextBox1.Mask = "XXX.XXX.XXX-XX";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(304, 20);
-            this.maskedTextBox1.TabIndex = 30;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // label10
             // 
@@ -196,16 +186,6 @@
             this.label10.TabIndex = 29;
             this.label10.Text = "CPF";
             this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // txtTelCad
-            // 
-            this.txtTelCad.Location = new System.Drawing.Point(403, 201);
-            this.txtTelCad.Mask = "(XX) XXXXX-XXXX";
-            this.txtTelCad.Name = "txtTelCad";
-            this.txtTelCad.Size = new System.Drawing.Size(127, 20);
-            this.txtTelCad.TabIndex = 28;
-            this.txtTelCad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTelCad.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtTelCad_MaskInputRejected);
             // 
             // label7
             // 
@@ -283,7 +263,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(320, 301);
+            this.button1.Location = new System.Drawing.Point(170, 301);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 28);
             this.button1.TabIndex = 20;
@@ -295,7 +275,7 @@
             // 
             this.btnLoginvw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(232)))), ((int)(((byte)(153)))));
             this.btnLoginvw.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginvw.Location = new System.Drawing.Point(170, 301);
+            this.btnLoginvw.Location = new System.Drawing.Point(320, 301);
             this.btnLoginvw.Name = "btnLoginvw";
             this.btnLoginvw.Size = new System.Drawing.Size(106, 28);
             this.btnLoginvw.TabIndex = 19;
@@ -355,6 +335,20 @@
             this.label6.Text = "Cadastrar-se";
             this.label6.Click += new System.EventHandler(this.label6_Click_1);
             // 
+            // txtTelCad
+            // 
+            this.txtTelCad.Location = new System.Drawing.Point(403, 201);
+            this.txtTelCad.Name = "txtTelCad";
+            this.txtTelCad.Size = new System.Drawing.Size(127, 20);
+            this.txtTelCad.TabIndex = 31;
+            // 
+            // txtCpfCad
+            // 
+            this.txtCpfCad.Location = new System.Drawing.Point(145, 256);
+            this.txtCpfCad.Name = "txtCpfCad";
+            this.txtCpfCad.Size = new System.Drawing.Size(304, 20);
+            this.txtCpfCad.TabIndex = 32;
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,9 +394,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEndCad;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.MaskedTextBox txtTelCad;
+        private System.Windows.Forms.MaskedTextBox txtCpfCad;
     }
 }
 

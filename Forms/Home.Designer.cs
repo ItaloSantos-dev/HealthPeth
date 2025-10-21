@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelVet = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panelCardCompromissos = new System.Windows.Forms.FlowLayoutPanel();
             this.lblVet = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -46,11 +46,11 @@
             this.btnInicio = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelConsultas = new System.Windows.Forms.Panel();
+            this.filtroConsultas = new System.Windows.Forms.ComboBox();
             this.panelCardsConsultas = new System.Windows.Forms.FlowLayoutPanel();
             this.lblConsultas = new System.Windows.Forms.Label();
             this.panelPrincipal.SuspendLayout();
             this.panelVet.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelBtnsMenu.SuspendLayout();
             this.panelBtnTratamentos.SuspendLayout();
@@ -74,7 +74,7 @@
             // 
             // panelVet
             // 
-            this.panelVet.Controls.Add(this.dataGridView2);
+            this.panelVet.Controls.Add(this.panelCardCompromissos);
             this.panelVet.Controls.Add(this.lblVet);
             this.panelVet.Location = new System.Drawing.Point(28, 261);
             this.panelVet.Name = "panelVet";
@@ -82,13 +82,12 @@
             this.panelVet.TabIndex = 5;
             this.panelVet.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVet_Paint);
             // 
-            // dataGridView2
+            // panelCardCompromissos
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(17, 34);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(712, 120);
-            this.dataGridView2.TabIndex = 4;
+            this.panelCardCompromissos.Location = new System.Drawing.Point(17, 35);
+            this.panelCardCompromissos.Name = "panelCardCompromissos";
+            this.panelCardCompromissos.Size = new System.Drawing.Size(712, 142);
+            this.panelCardCompromissos.TabIndex = 4;
             // 
             // lblVet
             // 
@@ -96,9 +95,10 @@
             this.lblVet.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVet.Location = new System.Drawing.Point(3, 5);
             this.lblVet.Name = "lblVet";
-            this.lblVet.Size = new System.Drawing.Size(355, 26);
+            this.lblVet.Size = new System.Drawing.Size(275, 26);
             this.lblVet.TabIndex = 3;
-            this.lblVet.Text = "Conheça alguns de nossos veterinários";
+            this.lblVet.Text = "Seus próximos compromissos";
+            this.lblVet.Click += new System.EventHandler(this.lblVet_Click);
             // 
             // btnMenu
             // 
@@ -246,21 +246,40 @@
             // 
             // panelConsultas
             // 
+            this.panelConsultas.Controls.Add(this.filtroConsultas);
             this.panelConsultas.Controls.Add(this.panelCardsConsultas);
             this.panelConsultas.Controls.Add(this.lblConsultas);
             this.panelConsultas.Location = new System.Drawing.Point(28, 39);
             this.panelConsultas.Name = "panelConsultas";
-            this.panelConsultas.Size = new System.Drawing.Size(740, 185);
+            this.panelConsultas.Size = new System.Drawing.Size(740, 216);
             this.panelConsultas.TabIndex = 2;
             this.panelConsultas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelConsultas_Paint);
             // 
+            // filtroConsultas
+            // 
+            this.filtroConsultas.DisplayMember = "as";
+            this.filtroConsultas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filtroConsultas.FormattingEnabled = true;
+            this.filtroConsultas.Items.AddRange(new object[] {
+            "Todas",
+            "Este mês",
+            "Agendadas",
+            "Concluidas",
+            "Canceladas",
+            "Perdidas"});
+            this.filtroConsultas.Location = new System.Drawing.Point(114, 10);
+            this.filtroConsultas.Name = "filtroConsultas";
+            this.filtroConsultas.Size = new System.Drawing.Size(121, 21);
+            this.filtroConsultas.TabIndex = 5;
+            this.filtroConsultas.SelectedIndexChanged += new System.EventHandler(this.filtroConsultas_SelectedIndexChanged);
+            // 
             // panelCardsConsultas
             // 
-            this.panelCardsConsultas.AutoScroll = true;
             this.panelCardsConsultas.Location = new System.Drawing.Point(17, 34);
             this.panelCardsConsultas.Name = "panelCardsConsultas";
-            this.panelCardsConsultas.Size = new System.Drawing.Size(712, 117);
+            this.panelCardsConsultas.Size = new System.Drawing.Size(712, 169);
             this.panelCardsConsultas.TabIndex = 4;
+            this.panelCardsConsultas.WrapContents = false;
             this.panelCardsConsultas.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // lblConsultas
@@ -269,9 +288,9 @@
             this.lblConsultas.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsultas.Location = new System.Drawing.Point(3, 5);
             this.lblConsultas.Name = "lblConsultas";
-            this.lblConsultas.Size = new System.Drawing.Size(127, 26);
+            this.lblConsultas.Size = new System.Drawing.Size(105, 26);
             this.lblConsultas.TabIndex = 3;
-            this.lblConsultas.Text = "Consultas de";
+            this.lblConsultas.Text = "Consultas:";
             this.lblConsultas.Click += new System.EventHandler(this.lblConsultas_Click);
             // 
             // Home
@@ -286,7 +305,6 @@
             this.panelPrincipal.ResumeLayout(false);
             this.panelVet.ResumeLayout(false);
             this.panelVet.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.panelBtnsMenu.ResumeLayout(false);
@@ -318,8 +336,9 @@
         private System.Windows.Forms.Label lblConsultas;
         private System.Windows.Forms.Panel panelConsultas;
         private System.Windows.Forms.Panel panelVet;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label lblVet;
         private System.Windows.Forms.FlowLayoutPanel panelCardsConsultas;
+        private System.Windows.Forms.ComboBox filtroConsultas;
+        private System.Windows.Forms.FlowLayoutPanel panelCardCompromissos;
     }
 }
