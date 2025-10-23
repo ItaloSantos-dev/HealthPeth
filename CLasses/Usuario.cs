@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -216,14 +217,14 @@ namespace HealthPetApp.CLasses
         public DataTable BuscarCompromissos()
         {
             var con = conexao.AbrirConexao();
-            string SELECT1 = "SELECT pets.apelido, receitas.medicamento, receitas.dosagem, receitas.unidade FROM receitas JOIN consultas ON receitas.consulta_id = consultas.id JOIN agendamentos ON consultas.agendamento_id = agendamentos.id JOIN pets ON agendamentos.pet_id = pets.id WHERE pets.tutor_id = @usuario_id AND receitas.status = 'em andamento'";
+            string SELECT1 = "SELECT pets.apelido,receitas.id, receitas.medicamento, receitas.dosagem, receitas.unidade, receitas.frequencia, receitas.observacoes, receitas.inicio, receitas.fim, receitas.status FROM receitas JOIN consultas ON receitas.consulta_id = consultas.id JOIN agendamentos ON consultas.agendamento_id = agendamentos.id JOIN pets ON agendamentos.pet_id = pets.id WHERE pets.tutor_id = @usuario_id AND receitas.status = 'em andamento'";
             MySqlCommand cmd1 = new MySqlCommand(SELECT1, con);
             cmd1.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
             DataTable tabela = new DataTable();
             MySqlDataAdapter adaptador1 = new MySqlDataAdapter(cmd1);
             adaptador1.Fill(tabela);
 
-            string SELECT2 = "SELECT pets.apelido, tratamentos.descricao, tratamentos.dias_semana, tratamentos.horario FROM tratamentos JOIN consultas ON tratamentos.consulta_id = consultas.id JOIN agendamentos ON consultas.agendamento_id = agendamentos.id JOIN pets ON agendamentos.pet_id = pets.id WHERE pets.tutor_id = @usuario_id AND tratamentos.status='em andamento'";
+            string SELECT2 = "SELECT pets.apelido, tratamentos.id, tratamentos.descricao, tratamentos.dias_semana, tratamentos.horario, tratamentos.inicio, tratamentos.fim, tratamentos.status, tratamentos.observacoes FROM tratamentos JOIN consultas ON tratamentos.consulta_id = consultas.id JOIN agendamentos ON consultas.agendamento_id = agendamentos.id JOIN pets ON agendamentos.pet_id = pets.id WHERE pets.tutor_id = @usuario_id AND tratamentos.status='em andamento'";
             MySqlCommand cmd2 = new MySqlCommand(SELECT2, con);
             cmd2.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
             DataTable tabela2 = new DataTable();
@@ -234,6 +235,20 @@ namespace HealthPetApp.CLasses
             
             return tabela;
 
+
+        }
+
+
+        public DataTable BuscarMeusPets()
+        {
+            var con = conexao.AbrirConexao();
+            string SELECT = "SELECT *FROM pets WHERE tutor_id = @id_user";
+            MySqlCommand cmd = new MySqlCommand(SELECT, con);
+            cmd.Parameters.AddWithValue("@id_user", UsuarioLogado.Id);
+            DataTable meusPets = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+            adaptador.Fill(meusPets);
+            return meusPets;
 
         }
 

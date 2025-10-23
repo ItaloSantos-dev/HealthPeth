@@ -43,3 +43,5 @@ E:\FACEMA\ProjetosPessoais\HealthPeth\bin\Debug\System.Numerics.Vectors.xml
 E:\FACEMA\ProjetosPessoais\HealthPeth\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\FACEMA\ProjetosPessoais\HealthPeth\bin\Debug\System.Threading.Tasks.Extensions.xml
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPe.450AA176.Up2Date
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.Detalhes.resources
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.MeusPets.resources

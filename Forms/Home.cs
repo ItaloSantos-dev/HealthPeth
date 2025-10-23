@@ -51,9 +51,11 @@ namespace HealthPetApp.Forms
                 Label lblCampo2 = new Label() { AutoSize = true};
                 Label lblCampo3 = new Label();
                 lblApelido.Text = "Pet: " + compromisso["apelido"].ToString();
+                string tipo;
                 
                 if (compromisso["medicamento"] != DBNull.Value)
                 {
+                    tipo = "Receita";
                     lblTipo.Text = "Receita";
                     cardCompromisso.Controls.Add(lblTipo);
 
@@ -69,6 +71,7 @@ namespace HealthPetApp.Forms
                 }
                 else
                 {
+                    tipo = "Tratamento";
                     lblTipo.Text = "Tratamento";
                     cardCompromisso.Controls.Add(lblTipo);
 
@@ -83,6 +86,11 @@ namespace HealthPetApp.Forms
                 }
                 Button btnVerMais = new Button();
                 btnVerMais.Text = "Ver mais";
+                btnVerMais.Click += (s, e) =>
+                {
+                    Detalhes detalhesCompromissos = new Detalhes(compromisso, tipo);
+                    detalhesCompromissos.ShowDialog();
+                };
                 cardCompromisso.Controls.Add(btnVerMais);
                 panelCardCompromissos.Controls.Add(cardCompromisso);
 
@@ -127,9 +135,17 @@ namespace HealthPetApp.Forms
                 //diagnostico
                 if (consultas["status"].ToString() == "realizado")
                 {
-                    Button diagnosticoLabel = new Button();
-                    diagnosticoLabel.Text="Diagnóstico";
-                    cardPanel.Controls.Add (diagnosticoLabel);
+                    Button diagnosticoButton = new Button();
+                    diagnosticoButton.Text="Diagnóstico";
+                    diagnosticoButton.Click += (s, e) =>
+                    {
+                        string tipo = "diagnostico";
+                        Detalhes detalhes = new Detalhes(consultas["diagnostico"].ToString(), tipo);
+                        detalhes.ShowDialog();
+
+
+                    };
+                    cardPanel.Controls.Add (diagnosticoButton);
                 }
                 cardPanel.WrapContents = false;
                 cardPanel.Size = new Size(111, 150);
@@ -168,7 +184,10 @@ namespace HealthPetApp.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            MeusPets meuspets = new MeusPets();
+            this.Owner = meuspets;
+            meuspets.Show();
+            this.Hide();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
