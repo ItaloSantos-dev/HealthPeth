@@ -185,7 +185,7 @@ namespace HealthPetApp.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             MeusPets meuspets = new MeusPets();
-            this.Owner = meuspets;
+            meuspets.Owner = this;
             meuspets.Show();
             this.Hide();
         }

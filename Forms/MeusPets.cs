@@ -25,7 +25,7 @@ namespace HealthPetApp.Forms
         {
             Usuario usuario = new Usuario();
             DataTable tabelaMeusPets = usuario.BuscarMeusPets();
-
+            PanelCardsPet.Controls.Clear();
             FlowLayoutPanel cardColunas = new FlowLayoutPanel() { AutoSize = true, FlowDirection = FlowDirection.TopDown, Width = 55 }; 
 
             Label lblApelidoc = new Label();
@@ -52,7 +52,7 @@ namespace HealthPetApp.Forms
             PanelCardsPet.Controls.Add(cardColunas);
             foreach (DataRow pet in tabelaMeusPets.Rows)
             {
-                FlowLayoutPanel cardPet = new FlowLayoutPanel() { AutoSize=true, FlowDirection=FlowDirection.TopDown};
+                FlowLayoutPanel cardPet = new FlowLayoutPanel() { AutoSize=false, FlowDirection=FlowDirection.TopDown, Width=85, Height=150};
 
                 Label lblApelido = new Label();
                 lblApelido.Text = pet["apelido"].ToString();
@@ -75,6 +75,10 @@ namespace HealthPetApp.Forms
                 lblIdade.Text = pet["idade"].ToString() +" Anos ";
                 cardPet.Controls.Add(lblIdade);
 
+                Button btnConsultas = new Button();
+                btnConsultas.Text = "Consultas";
+                cardPet.Controls.Add(btnConsultas);
+
 
                 PanelCardsPet.Controls.Add(cardPet);
             }
@@ -83,6 +87,26 @@ namespace HealthPetApp.Forms
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void PanelCardsPet_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CadastrarPet cadastrarPet = new CadastrarPet();
+            cadastrarPet.ShowDialog();
+            ExibirMeusPets();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            this.Hide();
+            Owner.Show();
+            
         }
     }
 }
