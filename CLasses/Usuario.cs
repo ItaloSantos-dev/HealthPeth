@@ -224,7 +224,7 @@ namespace HealthPetApp.CLasses
             MySqlDataAdapter adaptador1 = new MySqlDataAdapter(cmd1);
             adaptador1.Fill(tabela);
 
-            string SELECT2 = "SELECT pets.apelido, tratamentos.id, tratamentos.descricao, tratamentos.dias_semana, tratamentos.horario, tratamentos.inicio, tratamentos.fim, tratamentos.status, tratamentos.observacoes FROM tratamentos JOIN consultas ON tratamentos.consulta_id = consultas.id JOIN agendamentos ON consultas.agendamento_id = agendamentos.id JOIN pets ON agendamentos.pet_id = pets.id WHERE pets.tutor_id = @usuario_id AND tratamentos.status='em andamento'";
+            string SELECT2 = "SELECT pets.apelido, tratamentos.id, tratamentos.tratamento, tratamentos.dias_semana, tratamentos.horario, tratamentos.inicio, tratamentos.fim, tratamentos.status, tratamentos.observacoes FROM tratamentos JOIN consultas ON tratamentos.consulta_id = consultas.id JOIN agendamentos ON consultas.agendamento_id = agendamentos.id JOIN pets ON agendamentos.pet_id = pets.id WHERE pets.tutor_id = @usuario_id AND tratamentos.status='em andamento'";
             MySqlCommand cmd2 = new MySqlCommand(SELECT2, con);
             cmd2.Parameters.AddWithValue("@usuario_id", UsuarioLogado.Id);
             DataTable tabela2 = new DataTable();
@@ -249,6 +249,19 @@ namespace HealthPetApp.CLasses
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             adaptador.Fill(meusPets);
             return meusPets;
+
+        }
+
+        public DataTable BuscarTratamentos()
+        {
+            var con=conexao.AbrirConexao();
+            string SELECT = "SELECT tratamentos.*, consultas.*, consultas.status AS status_consulta, pets.* FROM tratamentos JOIN consultas ON tratamentos.consulta_id = consultas.id JOIN agendamentos ON consultas.agendamento_id = agendamentos.id JOIN pets ON agendamentos.pet_id = pets.id where pets.tutor_id = @tutor_id;";
+            MySqlCommand cmd = new MySqlCommand( SELECT, con);
+            cmd.Parameters.AddWithValue("@tutor_id", UsuarioLogado.Id);
+            DataTable tratamentos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+            adaptador.Fill(tratamentos);
+            return tratamentos;
 
         }
 

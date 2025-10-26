@@ -47,3 +47,4 @@ E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.Detalhes.reso
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.MeusPets.resources
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.CadastrarPet.resources
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.ConsultasdoPet.resources
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.Tratamentos.resources

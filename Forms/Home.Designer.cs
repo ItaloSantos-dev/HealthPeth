@@ -37,7 +37,7 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelBtnsMenu = new System.Windows.Forms.Panel();
             this.panelBtnTratamentos = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnTratamentos = new System.Windows.Forms.Button();
             this.panelBtnReceitas = new System.Windows.Forms.Panel();
             this.btnReceitas = new System.Windows.Forms.Button();
             this.pabelBtnPets = new System.Windows.Forms.Panel();
@@ -135,29 +135,30 @@
             // 
             // panelBtnTratamentos
             // 
-            this.panelBtnTratamentos.Controls.Add(this.button5);
+            this.panelBtnTratamentos.Controls.Add(this.btnTratamentos);
             this.panelBtnTratamentos.Location = new System.Drawing.Point(0, 90);
             this.panelBtnTratamentos.Name = "panelBtnTratamentos";
             this.panelBtnTratamentos.Size = new System.Drawing.Size(184, 39);
             this.panelBtnTratamentos.TabIndex = 3;
+            this.panelBtnTratamentos.Click += new System.EventHandler(this.panelBtnTratamentos_Click);
             this.panelBtnTratamentos.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button5
+            // btnTratamentos
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(3, 4);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(178, 32);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "     Tratamentos";
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            this.btnTratamentos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnTratamentos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTratamentos.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTratamentos.Image = ((System.Drawing.Image)(resources.GetObject("btnTratamentos.Image")));
+            this.btnTratamentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTratamentos.Location = new System.Drawing.Point(3, 4);
+            this.btnTratamentos.Name = "btnTratamentos";
+            this.btnTratamentos.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnTratamentos.Size = new System.Drawing.Size(178, 32);
+            this.btnTratamentos.TabIndex = 0;
+            this.btnTratamentos.Text = "     Tratamentos";
+            this.btnTratamentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTratamentos.UseVisualStyleBackColor = false;
+            this.btnTratamentos.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // panelBtnReceitas
             // 
@@ -326,7 +327,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelBtnsMenu;
         private System.Windows.Forms.Panel panelBtnTratamentos;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnTratamentos;
         private System.Windows.Forms.Panel panelBtnReceitas;
         private System.Windows.Forms.Button btnReceitas;
         private System.Windows.Forms.Panel pabelBtnPets;

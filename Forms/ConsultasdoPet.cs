@@ -79,7 +79,7 @@ namespace HealthPetApp.Forms
                         btnDiagnostico.Text = "Diagnóstico";
                         btnDiagnostico.Click += (s, e) =>
                         {
-                            Detalhes detalhes = new Detalhes(consulta["diagnostico"].ToString(), "diagnostico");
+                            Detalhes detalhes = new Detalhes(consulta["diagnostico"].ToString(), "Diagnostico");
                             detalhes.ShowDialog();
 
                         };

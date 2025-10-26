@@ -12,91 +12,121 @@ namespace HealthPetApp.Forms
 {
     public partial class Detalhes : Form
     {
-        string _tipo;
-        DataRow _compromisso;
-        string _diagnostico;
-        public Detalhes(object compromisso, string tipo)
+
+        public Detalhes(object infos, string tipo)
         {
             InitializeComponent();
-            
-             _tipo= tipo;
-            if (_tipo.Equals("diagnostico"))
-            {
-                _diagnostico = (string)compromisso;
-                ExibirDiagnostico();
-            }
-            else
-            {
-                _compromisso = (DataRow)compromisso;
-                ExibirInformacoes();
-            }
+
+            ExibirDetalhes(infos, tipo);
                 
         }
-        public void ExibirDiagnostico()
+
+
+        private void ExibirDetalhes(object infos, string tipo)
         {
-            FlowLayoutPanel diagnosticoPaanel = new FlowLayoutPanel();
-            lblTipo.Text = "Diagnostico";
-            TextBox txtDiagnostico = new TextBox() { BorderStyle = BorderStyle.Fixed3D};
-            txtDiagnostico.Text = _diagnostico;
-            txtDiagnostico.Width = 200;
-            txtDiagnostico.Height = 200;
-            txtDiagnostico.ReadOnly = true;
-            txtDiagnostico.Multiline = true;
-            txtDiagnostico.BorderStyle = BorderStyle.FixedSingle;
-            diagnosticoPaanel.Controls.Add(txtDiagnostico);
-            flowLayoutPanel1.Controls.Add(diagnosticoPaanel);
-
-
-        }
-        public void ExibirInformacoes()
-        {
-            Label lblDesc = new Label();
-            Label lblFreq = new Label();
-            Label lbl3campo = new Label();
-            Label lbl4campo = new Label();
-            Label lbl5Campo = new Label();
-            Label lbl6Campo = new Label();
-
-
-
-            if (_tipo.Equals("Tratamento"))
+            panelDetalhes.Controls.Clear();
+            lblTipo.Text = tipo;
+            if (tipo.Equals("Diagnostico"))
             {
-                lblTipo.Text = "Tratamento";
-
-                lblDesc.Text = "Tratamento: " + _compromisso["descricao"].ToString();
-                lblFreq.Text = "Dias: " + _compromisso["dias_semana"].ToString() + " ás " + _compromisso["horario"].ToString();
-                lbl3campo.Text = "Duração: " + ((DateTime)_compromisso["inicio"]).ToString("yyyy-MM-dd") + " á " + ((DateTime)_compromisso["fim"]).ToString("yyyy/MM-dd");
-                lbl4campo.Text = "Status: " + _compromisso["status"].ToString();
-                lbl5Campo.Text = "Observações: " + _compromisso["observacoes"].ToString();
+                FlowLayoutPanel diagnosticoPanel = new FlowLayoutPanel();
+                
+                TextBox txtDiagnostico = new TextBox() { Width=200, Height=200,ReadOnly=true, Multiline = true  };
+                txtDiagnostico.Text = infos.ToString();
+                diagnosticoPanel.Controls.Add(txtDiagnostico);
+                panelDetalhes.Controls.Add(diagnosticoPanel);
             }
-            else
+            else if (tipo.Equals("Consulta"))
             {
-                lblTipo.Text = "Receita";
-                lblDesc.Text = "Medicamento: " + _compromisso["medicamento"].ToString();
-                lblFreq.Text = _compromisso["frequencia"].ToString();
-                lbl3campo.Text = "Dosagem: " + _compromisso["dosagem"] + " " + _compromisso["unidade"].ToString();
-                lbl4campo.Text = "Duração: " + ((DateTime)_compromisso["inicio"]).ToString("yyyy-MM-dd") + " á " + ((DateTime)_compromisso["fim"]).ToString("yyyy/MM-dd");
-                lbl5Campo.Text = "Status: " + _compromisso["status"].ToString();
-                lbl6Campo.Text = "Observações: " + _compromisso["observacoes"].ToString();
+                
+                DataRow _infos = (DataRow)infos;
+                DateTime data = (DateTime)_infos["data"];
+                
+                Label lblData = new Label() { AutoSize = true};
+                lblData.Text = "Data: " + data.ToString("yyyy/MM/dd");
+                panelDetalhes.Controls.Add(lblData);
+
+                
+                Label lblTipoc= new Label() { AutoSize = true };
+                lblTipoc.Text = "Tipo: " + _infos["tipo"];
+                panelDetalhes.Controls.Add(lblTipoc);
+
+
+                Label lblStatus = new Label() { AutoSize = true };
+                lblStatus.Text = "Status: " + _infos["status_consulta"];
+                panelDetalhes.Controls.Add(lblStatus);
+
+                if (_infos["status_consulta"].ToString().Equals("realizado"))
+                {
+                    TextBox diagnostico = new TextBox() { BorderStyle = BorderStyle.Fixed3D, ReadOnly = true, Multiline = true};
+                    diagnostico.Text= _infos["diagnostico"].ToString();
+                    panelDetalhes.Controls.Add(diagnostico);
+
+
+                }
+
+
+
 
 
             }
-            flowLayoutPanel1.Controls.Add(lblDesc);
-            lblDesc.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(lblFreq);
-            lblFreq.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(lbl3campo);
-            lbl3campo.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(lbl4campo);
-            lbl4campo.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(lbl5Campo);
-            lbl4campo.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(lbl6Campo);
-            lbl5Campo.AutoSize = true;
+            else if (tipo.Equals("Receita"))
+            {
+                DataRow _infos = (DataRow)infos;
+                Label lblDesc = new Label(){AutoSize = true};
+                Label lblFreq = new Label() { AutoSize = true };
+                Label lbl3campo = new Label(){AutoSize = true};
+                Label lbl4campo = new Label(){AutoSize = true};
+                Label lbl5Campo = new Label(){AutoSize = true};
+                Label lbl6Campo = new Label(){AutoSize = true};
+
+                
+                lblDesc.Text = "Medicamento: " + _infos["medicamento"].ToString();
+                lblFreq.Text = _infos["frequencia"].ToString();
+                lbl3campo.Text = "Dosagem: " + _infos["dosagem"] + " " + _infos["unidade"].ToString();
+                lbl4campo.Text = "Duração: " + ((DateTime)_infos["inicio"]).ToString("yyyy-MM-dd") + " á " + ((DateTime)_infos["fim"]).ToString("yyyy/MM-dd");
+                lbl5Campo.Text = "Status: " + _infos["status"].ToString();
+                lbl6Campo.Text = "Observações: " + _infos["observacoes"].ToString();
+
+                panelDetalhes.Controls.Add(lblDesc);
+                panelDetalhes.Controls.Add(lblFreq);
+                panelDetalhes.Controls.Add(lbl3campo);
+                panelDetalhes.Controls.Add(lbl4campo);
+                panelDetalhes.Controls.Add(lbl5Campo);
+                panelDetalhes.Controls.Add(lbl6Campo);
 
 
+            }
+            else if (tipo.Equals("Tratamento"))
+            {
+                DataRow _infos = (DataRow)infos;
+                Label lblDesc = new Label(){AutoSize = true};
+                Label lblFreq = new Label(){AutoSize = true};
+                Label lbl3campo = new Label(){AutoSize = true};
+                Label lbl4campo = new Label(){AutoSize = true};
+                Label lbl5Campo = new Label(){AutoSize = true};
+                Label lbl6Campo = new Label(){AutoSize = true};
+                
 
+                lblDesc.Text = "Tratamento: " + _infos["tratamento"].ToString();
+                lblFreq.Text = "Dias: " + _infos["dias_semana"].ToString() + " ás " + _infos["horario"].ToString();
+                lbl3campo.Text = "Duração: " + ((DateTime)_infos["inicio"]).ToString("yyyy-MM-dd") + " á " + ((DateTime)_infos["fim"]).ToString("yyyy/MM-dd");
+                lbl4campo.Text = "Status: " + _infos["status"].ToString();
+                lbl5Campo.Text = "Observações: " + _infos["observacoes"].ToString();
+
+
+                panelDetalhes.Controls.Add(lblDesc);
+                panelDetalhes.Controls.Add(lblFreq);
+                panelDetalhes.Controls.Add(lbl3campo);
+                panelDetalhes.Controls.Add(lbl4campo);
+                panelDetalhes.Controls.Add(lbl5Campo);
+                panelDetalhes.Controls.Add(lbl6Campo);
+
+            }
         }
+
+
+
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -104,6 +134,16 @@ namespace HealthPetApp.Forms
         }
 
         private void lbl3campo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

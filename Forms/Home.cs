@@ -77,7 +77,7 @@ namespace HealthPetApp.Forms
 
                     cardCompromisso.Controls.Add(lblApelido);
 
-                    lblCampo1.Text ="Desc:" +  compromisso["descricao"].ToString();
+                    lblCampo1.Text ="Desc:" +  compromisso["tratamento"].ToString();
                     cardCompromisso.Controls.Add (lblCampo1);
 
                     lblCampo2.Text = "Horários: " + compromisso["dias_semana"].ToString() + " ás " + compromisso["horario"].ToString();
@@ -139,7 +139,7 @@ namespace HealthPetApp.Forms
                     diagnosticoButton.Text="Diagnóstico";
                     diagnosticoButton.Click += (s, e) =>
                     {
-                        string tipo = "diagnostico";
+                        string tipo = "Diagnostico";
                         Detalhes detalhes = new Detalhes(consultas["diagnostico"].ToString(), tipo);
                         detalhes.ShowDialog();
 
@@ -196,7 +196,10 @@ namespace HealthPetApp.Forms
         }
         private void button5_Click_1(object sender, EventArgs e)
         {
-
+            Tratamentos tratamentos = new Tratamentos();
+            tratamentos.Owner = this;
+            tratamentos.Show();
+            this.Hide();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -257,6 +260,11 @@ namespace HealthPetApp.Forms
         }
 
         private void lblVet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelBtnTratamentos_Click(object sender, EventArgs e)
         {
 
         }

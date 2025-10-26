@@ -86,6 +86,7 @@
             this.label1.Size = new System.Drawing.Size(133, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Meus pets:";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // MeusPets
             // 

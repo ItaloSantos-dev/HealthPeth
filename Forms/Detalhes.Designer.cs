@@ -31,7 +31,7 @@
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTipo = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelDetalhes = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -51,6 +51,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(237, 51);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // lblTipo
             // 
@@ -63,20 +64,21 @@
             this.lblTipo.Text = "Compromisso:";
             this.lblTipo.Click += new System.EventHandler(this.label1_Click);
             // 
-            // flowLayoutPanel1
+            // panelDetalhes
             // 
-            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(32, 82);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(358, 323);
-            this.flowLayoutPanel1.TabIndex = 4;
+            this.panelDetalhes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelDetalhes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelDetalhes.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.panelDetalhes.Location = new System.Drawing.Point(32, 82);
+            this.panelDetalhes.Name = "panelDetalhes";
+            this.panelDetalhes.Padding = new System.Windows.Forms.Padding(5);
+            this.panelDetalhes.Size = new System.Drawing.Size(358, 323);
+            this.panelDetalhes.TabIndex = 4;
+            this.panelDetalhes.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.panelDetalhes);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(1, 2);
             this.panel1.Name = "panel1";
@@ -103,7 +105,7 @@
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTipo;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel panelDetalhes;
         private System.Windows.Forms.Panel panel1;
     }
 }
