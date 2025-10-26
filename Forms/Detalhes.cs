@@ -36,7 +36,7 @@ namespace HealthPetApp.Forms
         {
             FlowLayoutPanel diagnosticoPaanel = new FlowLayoutPanel();
             lblTipo.Text = "Diagnostico";
-            TextBox txtDiagnostico = new TextBox();
+            TextBox txtDiagnostico = new TextBox() { BorderStyle = BorderStyle.Fixed3D};
             txtDiagnostico.Text = _diagnostico;
             txtDiagnostico.Width = 200;
             txtDiagnostico.Height = 200;

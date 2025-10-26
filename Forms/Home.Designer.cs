@@ -301,6 +301,7 @@
             this.Controls.Add(this.panelPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HealthPet";
             this.panelPrincipal.ResumeLayout(false);
             this.panelVet.ResumeLayout(false);

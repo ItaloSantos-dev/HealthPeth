@@ -90,6 +90,7 @@
             this.ClientSize = new System.Drawing.Size(431, 450);
             this.Controls.Add(this.panel1);
             this.Name = "Detalhes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DtalhesCompromissos";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

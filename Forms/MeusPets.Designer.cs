@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.PanelCardsPet = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +47,16 @@
             this.panel1.Size = new System.Drawing.Size(802, 455);
             this.panel1.TabIndex = 0;
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(3, 14);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.TabIndex = 0;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(275, 363);
@@ -60,6 +70,7 @@
             // PanelCardsPet
             // 
             this.PanelCardsPet.AutoScroll = true;
+            this.PanelCardsPet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PanelCardsPet.Location = new System.Drawing.Point(12, 133);
             this.PanelCardsPet.Name = "PanelCardsPet";
             this.PanelCardsPet.Size = new System.Drawing.Size(776, 201);
@@ -76,16 +87,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Meus pets:";
             // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Location = new System.Drawing.Point(3, 14);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
-            this.btnVoltar.TabIndex = 0;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
             // MeusPets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,6 +94,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Name = "MeusPets";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MeusPets";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

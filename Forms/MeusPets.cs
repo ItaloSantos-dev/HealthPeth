@@ -21,7 +21,7 @@ namespace HealthPetApp.Forms
             ExibirMeusPets();
         }
 
-        public void ExibirMeusPets()
+        private void ExibirMeusPets()
         {
             Usuario usuario = new Usuario();
             DataTable tabelaMeusPets = usuario.BuscarMeusPets();
@@ -77,6 +77,14 @@ namespace HealthPetApp.Forms
 
                 Button btnConsultas = new Button();
                 btnConsultas.Text = "Consultas";
+                btnConsultas.Click += (s, e) =>
+                {
+                    ConsultasdoPet consultasdoPet = new ConsultasdoPet(pet);
+                    consultasdoPet.Owner = this;
+                    this.Hide();
+                    consultasdoPet.Show();
+
+                };
                 cardPet.Controls.Add(btnConsultas);
 
 

@@ -38,6 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelCad = new System.Windows.Forms.Panel();
+            this.txtCpfCad = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelCad = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtEndCad = new System.Windows.Forms.TextBox();
@@ -53,8 +55,6 @@
             this.txtEmailCad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtTelCad = new System.Windows.Forms.MaskedTextBox();
-            this.txtCpfCad = new System.Windows.Forms.MaskedTextBox();
             this.panelLogin.SuspendLayout();
             this.panelCad.SuspendLayout();
             this.SuspendLayout();
@@ -174,6 +174,20 @@
             this.panelCad.Size = new System.Drawing.Size(597, 382);
             this.panelCad.TabIndex = 1;
             this.panelCad.Visible = false;
+            // 
+            // txtCpfCad
+            // 
+            this.txtCpfCad.Location = new System.Drawing.Point(145, 256);
+            this.txtCpfCad.Name = "txtCpfCad";
+            this.txtCpfCad.Size = new System.Drawing.Size(304, 20);
+            this.txtCpfCad.TabIndex = 32;
+            // 
+            // txtTelCad
+            // 
+            this.txtTelCad.Location = new System.Drawing.Point(403, 201);
+            this.txtTelCad.Name = "txtTelCad";
+            this.txtTelCad.Size = new System.Drawing.Size(127, 20);
+            this.txtTelCad.TabIndex = 31;
             // 
             // label10
             // 
@@ -335,20 +349,6 @@
             this.label6.Text = "Cadastrar-se";
             this.label6.Click += new System.EventHandler(this.label6_Click_1);
             // 
-            // txtTelCad
-            // 
-            this.txtTelCad.Location = new System.Drawing.Point(403, 201);
-            this.txtTelCad.Name = "txtTelCad";
-            this.txtTelCad.Size = new System.Drawing.Size(127, 20);
-            this.txtTelCad.TabIndex = 31;
-            // 
-            // txtCpfCad
-            // 
-            this.txtCpfCad.Location = new System.Drawing.Point(145, 256);
-            this.txtCpfCad.Name = "txtCpfCad";
-            this.txtCpfCad.Size = new System.Drawing.Size(304, 20);
-            this.txtCpfCad.TabIndex = 32;
-            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,6 +359,7 @@
             this.Controls.Add(this.panelLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaInicial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HealthPet";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelLogin.ResumeLayout(false);

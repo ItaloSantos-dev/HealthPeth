@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,6 +61,19 @@ namespace HealthPetApp.CLasses
 
 
 
+        }
+
+
+        public DataTable BuscarConsultas()
+        {
+            var con = conexao.AbrirConexao();
+            string SELECT = "SELECT *FROM consultas JOIN agendamentos on agendamentos.id = consultas.agendamento_id WHERE agendamentos.pet_id = @pet_id";
+            MySqlCommand cmd = new MySqlCommand(SELECT, con);
+            cmd.Parameters.AddWithValue("@pet_id", Id);
+            DataTable consultas = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+            adaptador.Fill(consultas);
+            return consultas;
         }
 
     }

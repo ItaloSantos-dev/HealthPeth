@@ -46,3 +46,4 @@ E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPe.450AA176.Up2Date
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.Detalhes.resources
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.MeusPets.resources
 E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.CadastrarPet.resources
+E:\FACEMA\ProjetosPessoais\HealthPeth\obj\Debug\HealthPetApp.Forms.ConsultasdoPet.resources

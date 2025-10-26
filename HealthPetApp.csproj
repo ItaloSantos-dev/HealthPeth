@@ -109,6 +109,12 @@
     <Compile Include="Forms\CadastrarPet.Designer.cs">
       <DependentUpon>CadastrarPet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ConsultasdoPet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConsultasdoPet.Designer.cs">
+      <DependentUpon>ConsultasdoPet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Detalhes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CadastrarPet.resx">
       <DependentUpon>CadastrarPet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConsultasdoPet.resx">
+      <DependentUpon>ConsultasdoPet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Detalhes.resx">
       <DependentUpon>Detalhes.cs</DependentUpon>
