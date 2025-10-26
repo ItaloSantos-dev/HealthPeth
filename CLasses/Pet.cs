@@ -34,25 +34,32 @@ namespace HealthPetApp.CLasses
         public void CadastrarPet(Form telaAtual)
         {
             var con = conexao.AbrirConexao();
-            string INSERT = "INSERT INTO pets(id, tutor_id, apelido, especie, raca, nascimento, idade) VALUES (DEFAULT, @tutor_id, @apelido, @especie, @raca, @nascimento, @idade); ";
-            MySqlCommand cmd = new MySqlCommand(INSERT, con);
-            cmd.Parameters.AddWithValue("@tutor_id", Tutor_id);
-            cmd.Parameters.AddWithValue("@apelido", Apelido);
-            cmd.Parameters.AddWithValue("@especie", Especie);
-            cmd.Parameters.AddWithValue("raca", Raca);
-            cmd.Parameters.AddWithValue("nascimento", Nascimento.ToString("yyyy/MM/dd"));
-            cmd.Parameters.AddWithValue("idade", Idade);
-            int resultado = cmd.ExecuteNonQuery();
-            if (resultado > 0)
+            if (Apelido != "" && Especie != "" && Raca != "" && Nascimento != null)
             {
-                MessageBox.Show("Pet cadastrado com sucesso");
-                telaAtual.Close();
+                string INSERT = "INSERT INTO pets(id, tutor_id, apelido, especie, raca, nascimento, idade) VALUES (DEFAULT, @tutor_id, @apelido, @especie, @raca, @nascimento, @idade); ";
+                MySqlCommand cmd = new MySqlCommand(INSERT, con);
+                cmd.Parameters.AddWithValue("@tutor_id", Tutor_id);
+                cmd.Parameters.AddWithValue("@apelido", Apelido);
+                cmd.Parameters.AddWithValue("@especie", Especie);
+                cmd.Parameters.AddWithValue("raca", Raca);
+                cmd.Parameters.AddWithValue("nascimento", Nascimento.ToString("yyyy/MM/dd"));
+                cmd.Parameters.AddWithValue("idade", Idade);
+                int resultado = cmd.ExecuteNonQuery();
+                if (resultado > 0)
+                {
+                    MessageBox.Show("Pet cadastrado com sucesso");
+                    telaAtual.Close();
 
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar o pet");
+
+                }
             }
             else
             {
-                MessageBox.Show("Erro ao cadastrar o pet");
-
+                MessageBox.Show("Um dos campos está vazio");
             }
 
 
